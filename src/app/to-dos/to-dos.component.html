@@ -1,0 +1,58 @@
+<!-- <div class="mb-3">
+  <h1 class="text-center m-4">To-do list</h1>
+  <div class="inputWithButtonContaniar d-flex justify-content-center">
+    <input
+      type="text"
+      class="form-control w-25 m-2"
+      id="toDoInput"
+      placeholder="Enter Task"
+    />
+    <button class="btn btn-primary">Add</button>
+  </div>
+</div>
+
+<div class="toDoContainer bg-danger">
+  <ul>
+    <li class="d-flex bg-info w-50 justify-content-between align-items-center m-auto">
+      <div class="bg-black d-flex justify-content-center align-content-center">
+        <h2 class="bg-warning ">Study</h2>
+      </div>
+      <div class="">
+        <button class="btn btn-primary ">Done</button>
+        <button class="btn btn-danger">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div> -->
+
+<div class="container">
+  <h1>ADD TODO LIST</h1>
+  <div id="line"></div>
+  <div class="task-input d-flex justify-content-center mb-5">
+    <input
+      [(ngModel)]="task"
+      type="text"
+      id="add-task"
+      name="todo"
+      placeholder="Add Task..."
+      value=""
+      class="mx-2"
+    />
+    <div class="flex-button">
+      <button (click)="addToDo()" class="btn btn-primary p-3">Add</button>
+    </div>
+  </div>
+
+  <div
+    class="task m-3 " *ngFor="let todoo of toDoArray; let i = index">
+    <div class="d-flex justify-content-between" *ngIf="todoo.show">
+      <h2 class="d-flex align-items-center" [style.text-decoration]="todoo.textDecorater">{{ todoo.name }}</h2>
+      <div>
+        <button (click)="done(i)" class="btn btn-primary m-2 p-2">Done</button>
+        <button (click)="delete(i)" class="btn btn-danger m-2 p-2">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
